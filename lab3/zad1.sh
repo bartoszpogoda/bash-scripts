@@ -12,26 +12,14 @@ then
     exit
 fi
 
-# Wyświetlić pliki: grupa ma prawa zapisu, inni prawa odczytu
-# rwxrwxrwx - maska: ~~~~1~1~~ -> 000010100 -> 024 -> "-perm -024"
+# List files with write right for group and read right for others (sorted, last 5)
+# rwxrwxrwx - mask: ~~~~1~1~~ -> 000010100 -> 024 -> "-perm -024"
 echo "1.a"
 find $baseDir -type f -perm -024 -print | sort | tail -n 5
 
-# Wyświetlić pliki o rozszerzeniu txt, modyfikowane mniej niż 5s temu ścieżki kanoniczne ale "/" -> "\"
+# List files with .txt extension modified within last 5 seconds. Print their canonical paths but with / subsituted with \.
 echo "1.b"
-#  tr "/" "\\"'
 find $baseDir -name "*.txt" -newermt '5 seconds ago' | while read file
 do
   realpath $file | tr '/' '\\'
 done
-
-
-
-
-
-
-# find /home/bpogoda/dev/so2-p -print | tail | while read var var2
-# do
-#   echo "var: "$var
-#   echo "var2: "$var2
-# done
