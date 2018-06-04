@@ -1,0 +1,42 @@
+https://regex101.com/
+
+Kod pocztowy i miasto:
+^\d{2}-\d{3} (?:[A-Z][a-z]+[\- ]+)*[A-Z][a-z]+$
+
+57-300 Klodzko
+57-300 Kudowa-Zdroj
+52-100 Jelenia Gora
+
+1-200 Aaa
+23-200 Kudowa-
+
+Imię/imiona nazwisko
+^(?:[A-Z][a-z]+ ){1,2}(?:[A-Z][a-z]+\-+)*[A-Z][a-z]*$
+
+Bartosz Pogoda
+Bartosz Dobra-Pogoda
+
+bartosz pogoda
+bartosz
+Bartosz Dobra-
+
+
+Data
+\d{1,2}[\.\/-]\d{1,2}[\.\/-]\d{2}(?:\d{2})?$
+
+1.1.2018
+01/01/18
+22-2-2018
+
+
+Email
+^(?:[a-z0-9]+[\.-])*[a-z0-9]+@(?:[a-z0-0]+[\.-])+[a-z]+$
+
+bartek.pogoda1@gmail.com
+bartek-pogoda@gmail.com
+bartek@gm-ail.com
+
+bartekgmail.com
+bartek@abc
+@aa.pl
+bartek.bartek
